@@ -1,2 +1,2 @@
 
-This web app was creted using react,react-redux for state managment and styled components.
+This web app was created using react,react-redux for state managment and styled components.
