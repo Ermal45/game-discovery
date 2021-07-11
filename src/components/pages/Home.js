@@ -56,7 +56,7 @@ export const Home = () => {
 
   const param = useParams()
 
-  console.log(param)
+  
 
 
   // const filteredResultsSection = useRef()
@@ -127,14 +127,14 @@ export const Home = () => {
  }, [filters, game.filtered.result.length, creators.filtered.result.length])
   
 
- console.log(process.env)
+ 
 
  const handleCurr = (e) => {
    const getId = e.target.id
    setCurrentFetch(getId)
  }
 
- console.log(param);
+ 
 
   return ( 
   <AnimatedList>
