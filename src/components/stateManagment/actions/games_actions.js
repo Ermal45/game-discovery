@@ -40,22 +40,22 @@ const nextYear = `${getYear() + 1}-${getMonth()}`
 
 // games api calls
 
-const newGamesURL = () => `${base_url}games?key=${api_key}&dates=${lastYear},${currentYear}&ordering=-released`
-const UpcomingGamesURL = () => `${base_url}games?key=${api_key}&dates=${currentYear},${nextYear}`
-const PopularGamesURL = () => `${base_url}games?key=${api_key}&dates=${lastYear},${currentYear}`
+const newGamesURL = () => `${base_url}games?key=${process.env.REACT_APP_DISCOVERY}&dates=${lastYear},${currentYear}&ordering=-released`
+const UpcomingGamesURL = () => `${base_url}games?key=${process.env.REACT_APP_DISCOVERY}&dates=${currentYear},${nextYear}`
+const PopularGamesURL = () => `${base_url}games?key=${process.env.REACT_APP_DISCOVERY}&dates=${lastYear},${currentYear}`
 
-const gameDetails = (id) => `${base_url}games/${id}?key=${api_key}`
-const gameDevelopers = (id) => `${base_url}games/${id}/development-team?key=${api_key}`
-const gameSeries = (id) => `${base_url}games/${id}/game-series?key=${api_key}`
-const gameScr = (id) => `${base_url}games/${id}/screenshots?key=${api_key}`
+const gameDetails = (id) => `${base_url}games/${id}?key=${process.env.REACT_APP_DISCOVERY}`
+const gameDevelopers = (id) => `${base_url}games/${id}/development-team?key=${process.env.REACT_APP_DISCOVERY}`
+const gameSeries = (id) => `${base_url}games/${id}/game-series?key=${process.env.REACT_APP_DISCOVERY}`
+const gameScr = (id) => `${base_url}games/${id}/screenshots?key=${process.env.REACT_APP_DISCOVERY}`
 
 
 // creators api calls
-const creatorsURL = () => `${base_url}creators?key=${api_key}&page_size=30`
+const creatorsURL = () => `${base_url}creators?key=${process.env.REACT_APP_DISCOVERY}&page_size=30`
 
-const creatorDetailsURL = (id) => `${base_url}creators/${id}?key=${api_key}` 
+const creatorDetailsURL = (id) => `${base_url}creators/${id}?key=${process.env.REACT_APP_DISCOVERY}` 
 
-const creatorGamesURL = (id) => `${base_url}games?key=${api_key}&creators=${id}&page=1&page_size=10`
+const creatorGamesURL = (id) => `${base_url}games?key=${process.env.REACT_APP_DISCOVERY}&creators=${id}&page=1&page_size=10`
 
 
 
