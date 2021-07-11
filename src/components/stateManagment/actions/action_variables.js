@@ -1,0 +1,51 @@
+
+
+ // <-- action variables --> //
+
+
+ // games action variables
+export const FETCH_INITIAL_GAMES = 'FETCH_INITIAL_GAMES';
+export const FETCH_GAME_DETAILS = 'FETCH_GAME_DETAILS';
+export const FETCH_NEXT_PREVIOUS_PAGE = 'FETCH_NEXT_PREVIOUS_PAGE';
+export const FETCH_FILTERED_LIST = 'FETCH_FILTERED_LIST';
+export const EMPTY_FILTERED_LIST = 'EMPTY_FILTERED_LIST';
+// export const EMPTY_GAMES_LIST = 'EMPTY_GAMES_LIST';
+
+// creators action variables
+export const FETCH_INITIAL_CREATORS = 'FETCH_INITIAL_CREATORS';
+export const FETCH_CREATOR_DETAILS = 'FETCH_CREATOR_DETAILS';
+
+// other action variables
+export const FETCH_DEVELOPERS_LIST = 'FETCH_DEVELOPERS_LIST';
+export const FETCH_PUBLISHERS_LIST = 'FETCH_PUBLISHERS_LIST';
+export const FETCH_GENRES_LIST = 'FETCH_GENRES_LIST';
+export const FETCH_TAGS_LIST = 'FETCH_TAGS_LIST';
+export const LOADING = 'LOADING';
+export const LOADING_DETAILS = 'LOADING_DETAILS';
+
+
+// export const FETCH_FILTERED_CREATORS = 'FETCH_FILTERED_CREATORS';
+
+
+// export const FETCH_NEXT_PREVIOUS_CREATORS_PAGE = 'FETCH_NEXT_PREVIOUS_CREATORS_PAGE';
+// export const EMPTY_CREATORS_LIST = 'EMPTY_CREATORS_LIST';
+
+
+
+// export const LOADING_GAME = 'LOADING_GAME'
+// export const LOADING_GAMES = 'LOADING_GAMES'
+
+// export const LOADING_CREATORS = 'LOADING_CREATORS'
+// export const LOADING_CREATOR = 'LOADING_CREATOR'
+
+
+
+
+
+
+
+
+
+
+
+
