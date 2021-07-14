@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {useSelector} from 'react-redux'
 import {motion} from 'framer-motion'
@@ -36,18 +36,20 @@ export const GameDetail = () => {
     let {details, devteam, screenshots, samegameserie, gametrailers} = game
 
     const exitModal = (e) => {
-        console.log(e)
         if (e.target.classList.contains('dark-bg')) {
             history.push('/')
             document.body.style.overflow = 'auto'
         }
     }
+    
+    const [windowPos, setWindowPos] = useState(0)
+
 
     
 
    return (
     !loadingDetails &&    
-        <DarkBG onMouseOver={showClickEvent} onClick={exitModal} className='dark-bg'>
+        <DarkBG  onMouseOver={showClickEvent} onClick={exitModal} className='dark-bg'>
             <Modal>
              <CloseBtn>
                  <img onClick={(e) => exitModal(e, history, '/')} src={CloseIcon} className='dark-bg' alt='close-icon' />

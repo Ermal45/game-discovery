@@ -184,13 +184,23 @@ width: 100%;
 justify-content: flex-end;
 
 img {
-    width: 1.4rem;
+    width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
 }
 
 @media screen and (min-width: 1000px) {
     display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.50rem 0.30rem;
+    box-shadow: var(--card-box-shadow);
+    background-color: var(--clr-white);
 }
 
 `
@@ -252,7 +262,7 @@ padding-top: 7rem;
 export const Grid = styled.div`
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: 1rem;
+gap: 1.2rem;
 `
 
 export const Container = styled.div`
@@ -271,9 +281,9 @@ export const BtnContainer = styled.div`
 padding: 1rem 0rem;
 width: 100%;
 display: flex;
-justify-content: space-between;
+justify-content: ${props => !props.previous ? 'flex-end' : 'space-between'};
 align-items: center;
-min-height: 20vh;
+min-height: 15vh;
 `
 
 export const Button = styled.button`
@@ -290,9 +300,9 @@ font-size: 1rem;
 border-radius: var(--card-radius);
 cursor: pointer;
 
-:hover {
+/* :hover {
   opacity: 0.5
-}
+} */
 
 `
 

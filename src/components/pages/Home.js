@@ -174,20 +174,21 @@ export const Home = () => {
    {game.filtered.result.length > 0 &&
   <div className='filteredResults'> 
    <h1> Filtered Results </h1>
+   <p> Number of results: {game.filtered.result.length} </p>
    <Container ref={filteredResultSection}  className='filtered'>
       {game.filtered.result.map(game => {
         return <GameCard {...game} key={game.id} identifier='gamePage' />
       })}
    </Container>
-   <BtnContainer>
+   <BtnContainer previous={game.filtered.previous}>
       {game.filtered.previous && <Button name='game' value='filtered' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)
-      }}> Previous </Button>}
+      }}> Previous Page </Button>}
       <Button name='game' value='filtered' onClick={(e) => {
         return switchPages(e, 'next'),
         scrollToContainer(e)
-      }}> Next </Button>
+      }}> Next Page </Button>
     </BtnContainer> 
     </div>
   }
@@ -198,7 +199,7 @@ export const Home = () => {
         return <GameCard {...game} key={game.id} identifier='gamePage' />
       }) }
     </Container>
-    <BtnContainer >
+    <BtnContainer previous={game.upcoming.previous}>
       {game.upcoming.previous && <Button name='game' value='upcoming' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)
@@ -223,7 +224,7 @@ export const Home = () => {
       }) }
 
     </Container>
-    <BtnContainer >
+    <BtnContainer  previous={game.popular.previous} >
       {game.popular.previous && <Button name='game' value='popular' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)  
@@ -242,7 +243,7 @@ export const Home = () => {
         return <GameCard {...game} key={game.id} identifier='gamePage' />
       }) }
     </Container>
-    <BtnContainer >
+    <BtnContainer previous={game.newgames.previous} >
       {game.newgames.previous && <Button name='game' value='newgames' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)
@@ -264,15 +265,15 @@ export const Home = () => {
         return <GameCard {...game} key={game.id} identifier='creatorPage' />
       })}
    </Container>
-   <BtnContainer>
+   <BtnContainer previous={creators.filtered.previous}>
       {creators.filtered.previous && <Button name='creators' value='filtered' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)
-      }}> Previous </Button>}
+      }}> Previous Page </Button>}
       <Button name='creators' value='filtered' onClick={(e) => {
         return switchPages(e, 'next'),
         scrollToContainer(e)
-      }}> Next </Button>
+      }}> Next Page </Button>
     </BtnContainer> 
     </div>
   }
@@ -282,7 +283,7 @@ export const Home = () => {
         return <GameCard {...creator} key={creator.id} identifier='creatorPage' />
       }) }
     </Container>
-    <BtnContainer >
+    <BtnContainer previous={creators.results.previous}>
       {creators.results.previous && <Button name='creators' value='results' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)
@@ -304,7 +305,13 @@ export const Home = () => {
 const AnimatedList = styled(List)`
 
 
+p {
+  padding-bottom: 1rem;
+}
 
+h1 {
+  padding: 1rem 0rem;
+}
 
 animation: listAnim 1s 1 normal;
 

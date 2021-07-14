@@ -94,22 +94,26 @@ span {
 
 const Gallery = styled(ImageBanner)`
  img {
-     width: 30rem;
+     width: 80%;
      height: 30rem;
      object-fit: cover;
+
+     @media screen and (min-width: 1400px) {
+         width: 50%;
+     }
  }
 `
 
 
 
-const CreatorGames = styled.div`
-padding-top: 3rem;
-h4 {
-    font-family: poplight;
-    font-size: 1.2rem;
-    padding-bottom: 1.4rem;
-}
+// const CreatorGames = styled.div`
+// padding-top: 3rem;
+// h4 {
+//     font-family: poplight;
+//     font-size: 1.2rem;
+//     padding-bottom: 1.4rem;
+// }
 
-`
+// `
 
 
