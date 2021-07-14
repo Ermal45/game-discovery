@@ -102,6 +102,7 @@ export const Home = () => {
     else {
       dispatch(fetchGameCreators())
     }
+    document.body.style.overflow = 'auto'
  }, [currentFetch]) 
 
 //  useEffect(() => {
@@ -151,7 +152,7 @@ export const Home = () => {
     </SwitchWrapper>
 
    {
-     currentFetch === 'games' ? <Filters placeHolder='search for games' route='games' enableDropdown={true} handleEvent={handleChange} /> : <Filters placeHolder='search for games' route='games' enableDropdown={false} handleEvent={handleChange} />
+     currentFetch === 'games' ? <Filters placeHolder='search for games' route='games' enableDropdown={true} handleEvent={handleChange} /> : <Filters placeHolder='search for creators' route='creators' enableDropdown={false} handleEvent={handleChange} />
    }
 
    {loading ? <Loader> <Ball /> </Loader> : 
@@ -168,14 +169,14 @@ export const Home = () => {
       })}
    </Container>
    <BtnContainer>
-      <Button name='game' value='filtered' onClick={(e) => {
-        return switchPages(e, 'next'),
-        scrollToContainer(e)
-      }}> Next </Button>
       {game.filtered.previous && <Button name='game' value='filtered' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)
       }}> Previous </Button>}
+      <Button name='game' value='filtered' onClick={(e) => {
+        return switchPages(e, 'next'),
+        scrollToContainer(e)
+      }}> Next </Button>
     </BtnContainer> 
     </div>
   }
@@ -187,14 +188,14 @@ export const Home = () => {
       }) }
     </Container>
     <BtnContainer >
-      <Button  name='game' value='upcoming' onClick={(e) => {
-        return switchPages(e, 'next'),
-        scrollToContainer(e)
-      }}> Next Page </Button>
       {game.upcoming.previous && <Button name='game' value='upcoming' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)
       }}> Previous Page </Button>}
+      <Button  name='game' value='upcoming' onClick={(e) => {
+        return switchPages(e, 'next'),
+        scrollToContainer(e)
+      }}> Next Page </Button>
     </BtnContainer>
 
 
@@ -212,14 +213,14 @@ export const Home = () => {
 
     </Container>
     <BtnContainer >
-      <Button name='game' value='popular' onClick={(e) => {
-        return switchPages(e, 'next'),
-        scrollToContainer(e)       
-      }}> Next Page </Button>
       {game.popular.previous && <Button name='game' value='popular' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)  
       }}> Previous Page </Button>}
+      <Button name='game' value='popular' onClick={(e) => {
+        return switchPages(e, 'next'),
+        scrollToContainer(e)       
+      }}> Next Page </Button>
     </BtnContainer>
 
 
@@ -231,14 +232,14 @@ export const Home = () => {
       }) }
     </Container>
     <BtnContainer >
-      <Button  name='game' value='newgames' onClick={(e) => {
-        return switchPages(e, 'next'),
-        scrollToContainer(e)
-      }}> Next Page </Button>
       {game.newgames.previous && <Button name='game' value='newgames' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)
       }}> Previous Page </Button>}
+      <Button  name='game' value='newgames' onClick={(e) => {
+        return switchPages(e, 'next'),
+        scrollToContainer(e)
+      }}> Next Page </Button>
     </BtnContainer>
   </>
   :
@@ -253,14 +254,14 @@ export const Home = () => {
       })}
    </Container>
    <BtnContainer>
-      <Button name='creators' value='filtered' onClick={(e) => {
-        return switchPages(e, 'next'),
-        scrollToContainer(e)
-      }}> Next </Button>
       {creators.filtered.previous && <Button name='creators' value='filtered' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)
       }}> Previous </Button>}
+      <Button name='creators' value='filtered' onClick={(e) => {
+        return switchPages(e, 'next'),
+        scrollToContainer(e)
+      }}> Next </Button>
     </BtnContainer> 
     </div>
   }
@@ -271,14 +272,14 @@ export const Home = () => {
       }) }
     </Container>
     <BtnContainer >
-      <Button  name='creators' value='results' onClick={(e) => {
-        return switchPages(e, 'next'),
-        scrollToContainer(e)
-      }}> Next Page </Button>
       {creators.results.previous && <Button name='creators' value='results' onClick={(e) => {
         return switchPages(e, 'previous'),
         scrollToContainer(e)
       }}> Previous Page </Button>}
+      <Button  name='creators' value='results' onClick={(e) => {
+        return switchPages(e, 'next'),
+        scrollToContainer(e)
+      }}> Next Page </Button>
     </BtnContainer> 
     </>
   }

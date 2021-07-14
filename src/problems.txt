@@ -1,0 +1,21 @@
+When I am on a creators page and use the 'back' button on my phone instead of using the 'x' to close the page, the feed is unable to scroll.
+
+On the creators page it says 'plaforms' instead of 'platforms'
+
+
+Some items seems to lack horizontal padding.
+
+Go to creators -> a creator -> go back in your browser (not the close button in the view) and bam webpage broken.
+
+When in the creators view, the search bar label says “search for games”.
+
+It would be nice to see the total games count when filtering.
+
+Viewing a game (the game modal) doesn’t let me see the bottom content, as my browser bottom bar covers it.
+
+404 not found if you refresh when on a game page.
+
+After clicking next page, the next page button is still in a “clicked” state, making it seem disabled.
+
+Next button should be on the right, and previous on the left.
+

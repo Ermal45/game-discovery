@@ -36,11 +36,14 @@ export const GameDetail = () => {
     let {details, devteam, screenshots, samegameserie, gametrailers} = game
 
     const exitModal = (e) => {
+        console.log(e)
         if (e.target.classList.contains('dark-bg')) {
             history.push('/')
             document.body.style.overflow = 'auto'
         }
     }
+
+    
 
    return (
     !loadingDetails &&    

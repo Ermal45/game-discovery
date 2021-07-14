@@ -33,7 +33,7 @@ export const CreatorDetail = () => {
                         {starRating(details.rating)}
                     </div>
                     <div>
-                        <h3>Plaforms</h3>
+                        <h3>Platforms</h3>
                         {details.platforms.results ? details.platforms.results.map(system => {
                             return <img src={platformImage(system.platform.name)} alt={system.platform.name} key={system.platform.id} />
                         }) : <small> no information yet </small>}
