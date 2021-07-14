@@ -2,9 +2,9 @@ import React, {useEffect, useRef, useState, useCallback} from 'react'
 
 
 
-import {useDispatch, useSelector} from 'react-redux'
+import {connectAdvanced, useDispatch, useSelector} from 'react-redux'
 
-import {useParams} from 'react-router-dom'
+import {useParams, useHistory} from 'react-router-dom'
 
 
 // reusable components
@@ -55,6 +55,18 @@ export const Home = () => {
   const { games:{game, creators, loading}, games} = useSelector(state => state)
 
   const param = useParams()
+   
+  const history = useHistory()
+
+  
+
+  useEffect(() => {
+   const currRoute = history.location.pathname 
+   const getParam = currRoute.split('/')[1]
+   if (!getParam) {
+     document.body.style.overflow = 'auto'
+   } 
+  }, [history.location.pathname])
 
   
 
@@ -102,7 +114,6 @@ export const Home = () => {
     else {
       dispatch(fetchGameCreators())
     }
-    document.body.style.overflow = 'auto'
  }, [currentFetch]) 
 
 //  useEffect(() => {
