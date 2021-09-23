@@ -194,7 +194,16 @@ p {
 export const CloseBtn = styled.div`
 display: flex;
 width: 100%;
+z-index: 999;
 justify-content: flex-end;
+
+
+position: sticky;
+top: 0;
+width: 100%;
+padding: 1rem 0.75rem;
+box-shadow: var(--card-box-shadow);
+background-color: var(--clr-white);
 
 img {
     width: 1.5rem;
@@ -204,16 +213,6 @@ img {
 
 @media screen and (min-width: 1000px) {
     display: none;
-}
-
-@media screen and (max-width: 1000px) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.50rem 0.30rem;
-    box-shadow: var(--card-box-shadow);
-    background-color: var(--clr-white);
 }
 
 `

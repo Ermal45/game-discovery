@@ -52,10 +52,10 @@ export const GameDetail = () => {
    return (
     !loadingDetails &&    
         <DarkBG onMouseOver={showClickEvent} onClick={exitModal} className='dark-bg'>
-            <Modal variants={animModal} initial='hidden' animate='visible'>
-             <CloseBtn>
+            <CloseBtn>
                  <img onClick={(e) => exitModal(e, history, '/')} src={CloseIcon} className='dark-bg' alt='close-icon' />
              </CloseBtn>
+            <Modal variants={animModal} initial='hidden' animate='visible'>
             <AboutGame>
             <div>
                 <h2>{details.name}</h2>
@@ -209,6 +209,7 @@ gap: 1rem;
 img {
     max-width: 100%;
     object-fit: cover;
+    border-radius: var(--card-radius);
 }
 `
 
