@@ -25,9 +25,9 @@ export const GameCardModified = styled(GameCard)`
 
   footer span {
       padding: 1em 0em;
-      color: #1f1414;
+      color: #474646;
       font-size: 1.45rem;
-      font-family: popmedium;
+      font-family: popregular;
   }
 `
 
