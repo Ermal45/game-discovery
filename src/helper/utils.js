@@ -51,7 +51,7 @@ import FULLSTAR from '../assets/rating_images/full-star.svg'
 import EMPTYSTAR from '../assets/rating_images/empty-star.svg'
 
 
-// api url calls
+// api url and key
 export const base_url = `https://api.rawg.io/api/`
 export const api_key = `${process.env.REACT_APP_DISCOVERY}`
 

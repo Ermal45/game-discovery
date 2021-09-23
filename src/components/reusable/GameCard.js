@@ -2,14 +2,10 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import {motion} from 'framer-motion'
+import {motion, AnimatePresence} from 'framer-motion'
 import {animationCard} from '../animations';
 
 import NOIMAGE from '../../assets/platform_images/NOIMAGE.png'
-
-// detail actions
-import {fetchGameDetails} from '../stateManagment/actions/games_actions'
-import {fetchCreatorDetails} from '../stateManagment/actions/games_actions'
 
 // get id from url-param
 import { useHistory} from 'react-router-dom'
@@ -31,16 +27,7 @@ export const GameCard = ({ background_image, image, name, positions, released, i
 
     const fireActions = () => {
         document.body.style.overflow = 'hidden'
-        // dispatch(fetchGameDetails(id, name))
-        //  history.push(`/game/${id}`)
-        if (identifier === 'gamePage') {
-             return dispatch(fetchGameDetails(id, name)),
-             history.push(`/game/${id}`)
-        } 
-        else {
-             return dispatch(fetchCreatorDetails(id)),
-             history.push(`/creator/${id}`)
-        }
+         return history.push(`/game/${id}`)
     }
 
     
@@ -55,13 +42,8 @@ export const GameCard = ({ background_image, image, name, positions, released, i
         //       <motion.small layoutId={`release ${id}`}> {returnReleaseDate()} </motion.small>
         //      </FooterStyled>
         // </GameCardStyled>
-
-        <GameCardStyled onClick={fireActions}>
-            <img src={resizeImage(background_image) || image || NOIMAGE} alt={name} />
-          {/* <FooterStyled> 
-              <span>{name}</span>
-              <small> {returnReleaseDate()} </small>
-             </FooterStyled> */}
+      <GameCardStyled  variants={animationCard} initial='hidden' animate='visible' exit='leave' onClick={fireActions} key={id}> 
+            <motion.img src={resizeImage(background_image) || image || NOIMAGE} alt={name} />
              <FooterStyled>
                  <span>{name}</span>
              </FooterStyled>
@@ -71,10 +53,9 @@ export const GameCard = ({ background_image, image, name, positions, released, i
 
 
 
-const GameCardStyled = styled.div`
+const GameCardStyled = styled(motion.div)`
 
-
-animation: animateCard 0.7s 1 normal;
+/* animation: animateCard 0.7s 1 normal;
 
 transition: all 0.3s ease;
 
@@ -85,14 +66,13 @@ transition: all 0.3s ease;
   to {
     transform: scale(1);
   }
-}
+} */
 
 
 
 /* box-shadow: var(--card-box-shadow); */
 cursor: pointer;
 img {
-    height: 20rem;
     width: 100%;
     display: block;
     object-fit: cover;
@@ -104,23 +84,18 @@ overflow: hidden;
 
 
 const FooterStyled = styled.div`
-padding-top: 1rem;
-height: 3rem;
-/* text-align: center;
-background-color: var(--clr-card-description-bg); */
-
+padding: 2.5rem 0;
 span {
-    color: var(--clr-black);
+    color: #1f1414;
     font-size: 1.2rem;
     display: block;
     font-family: popregular;
 }
 
-/* small {
-    color: var(--clr-text);
-    font-size: 0.90rem;
-    padding-top: 1rem;
-    font-family: poplight;
-} */
+@media (min-width: 600px) {
+  span {
+    font-size: 1.55rem;
+  }
+}
 
 `

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {DarkBG, Modal, AboutGame, ImageBanner, TagsContainer, TagContainer, Tag, GameDescription,  FooterContainer,   GameCard, CloseBtn,  StyledWrapper, Grid} from '../Basicstyles'
+import {DarkBG, Modal, AboutGame, ImageBanner, TagsContainer, TagContainer, Tag, GameDescription,  FooterContainer,   GameCardModified, CloseBtn,  StyledWrapper, Grid} from '../Basicstyles'
 
 import CloseIcon from '../../assets/close-modal-icon.svg';
 
@@ -67,12 +67,12 @@ export const CreatorDetail = () => {
                     <Grid>
                     {games.map((game) => {
                         return (
-                            <GameCard key={game.id}>
+                            <GameCardModified key={game.id}>
                              <img src={resizeImage(game.background_image)} alt={game.name} />
                              <footer>
                                  <span>{game.name}</span>
                              </footer>
-                            </GameCard>
+                            </GameCardModified>
                         )
                     })}
                     </Grid>
@@ -94,13 +94,8 @@ span {
 
 const Gallery = styled(ImageBanner)`
  img {
-     width: 80%;
-     height: 30rem;
+     max-width: 100%;
      object-fit: cover;
-
-     @media screen and (min-width: 1400px) {
-         width: 50%;
-     }
  }
 `
 

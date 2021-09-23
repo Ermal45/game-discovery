@@ -15,6 +15,7 @@ import {Footer} from './components/Footer'
 import {Route} from 'react-router-dom';
 
 import styled from 'styled-components'
+import { AnimatePresence } from 'framer-motion';
 
 const App = () => {
 
@@ -22,9 +23,8 @@ const App = () => {
     <AppContainer>
     <GlobalStyle />
     <Navbar />
-
     
-    <Route exact path={['/', '/game/:id', '/creator/:id']}>
+    <Route exact path={['/', '/game/:id']}>
       <Home />
     </Route>
 

@@ -69,12 +69,13 @@ const GlobalStyle = createGlobalStyle`
  h1 {
      font-size: 1.5rem;
      font-family: popbold;
-     padding: 3rem 0;
+     padding: 1em 0;
      color: var(--clr-purple-dark);
  }
 
  a {
    text-decoration: none;
+   cursor: pointer;
  }
 
  /* iframe {
@@ -88,7 +89,7 @@ const GlobalStyle = createGlobalStyle`
 
  @media screen and (min-width: 1024px) {
      h1 {
-         font-size: 2.1rem;
+         font-size: 3rem;
      }
  }
 

@@ -1,11 +1,11 @@
 
 
 import styled from 'styled-components';
-import {motion} from 'framer-motion';
+import {motion} from 'framer-motion'
 
 
 export const GameCard = styled.div`
-  min-height: 20vh;
+  /* min-height: 20vh; */
   overflow: hidden;
   img {
     width: 20rem;
@@ -15,6 +15,19 @@ export const GameCard = styled.div`
   }
   footer span {
     font-size: 1.2rem;
+  }
+`
+
+export const GameCardModified = styled(GameCard)`
+  img {
+      width: 100%;
+  }
+
+  footer span {
+      padding: 1em 0em;
+      color: #1f1414;
+      font-size: 1.45rem;
+      font-family: popmedium;
   }
 `
 
@@ -86,7 +99,7 @@ h3,h2 {
 }
 `
 
-export const Modal = styled.div`
+export const Modal = styled(motion.div)`
 padding: 1rem 1rem;
 background-color: var(--clr-white);
 width: 100%;
@@ -135,7 +148,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 img {
-    width: 100%;
+    max-width: 100%;
     border-radius: var(--card-radius);
     object-fit: cover;
 }
@@ -261,7 +274,7 @@ padding-top: 7rem;
 
 export const Grid = styled.div`
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 gap: 1.2rem;
 `
 
@@ -269,10 +282,9 @@ export const Container = styled.div`
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 gap: 3rem;
-min-height: 70vh;
 
 @media screen and (min-width: 600px) {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
 }
 
 `
@@ -306,7 +318,7 @@ cursor: pointer;
 
 `
 
-export const List = styled.div`
+export const List = styled(motion.div)`
 padding: 0 5%;
 h1 {
   padding: 3rem 0rem;

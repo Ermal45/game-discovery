@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
-import {useSelector} from 'react-redux'
-import {motion} from 'framer-motion'
+import {useSelector, useDispatch} from 'react-redux'
+import {fetchGameDetails} from '../stateManagment/actions/games_actions'
 
 import styled from 'styled-components'
+import {motion} from 'framer-motion'
+import {animModal} from '../animations'
 
-import {useHistory} from 'react-router-dom'
+import {useHistory, useParams} from 'react-router-dom'
 
 import {platformImage, starRating, resizeImage, EsrbRating, exitModal, checkMetacritic, showClickEvent} from '../../helper/utils';
 
 import CloseIcon from '../../assets/close-modal-icon.svg'
 
 import {
-    
-    GameCard, 
-    FooterContainer, 
+    GameCardModified,
     StyledWrapper, 
     Grid, 
     Modal, 
@@ -30,10 +30,17 @@ import {
 export const GameDetail = () => {
 
     const history = useHistory()
+    const dispatch = useDispatch()
+    const {id} = useParams()
+
+    useEffect(() => {
+        dispatch(fetchGameDetails(id, 'dumdum'))
+        document.body.style.overflow = 'hidden'
+    }, [])
 
     const {games:{game, loadingDetails}} = useSelector(state => state)
 
-    let {details, devteam, screenshots, samegameserie, gametrailers} = game
+    let {details, devteam, screenshots, samegameserie} = game
 
     const exitModal = (e) => {
         if (e.target.classList.contains('dark-bg')) {
@@ -41,16 +48,11 @@ export const GameDetail = () => {
             document.body.style.overflow = 'auto'
         }
     }
-    
-    const [windowPos, setWindowPos] = useState(0)
-
-
-    
 
    return (
     !loadingDetails &&    
-        <DarkBG  onMouseOver={showClickEvent} onClick={exitModal} className='dark-bg'>
-            <Modal>
+        <DarkBG onMouseOver={showClickEvent} onClick={exitModal} className='dark-bg'>
+            <Modal variants={animModal} initial='hidden' animate='visible'>
              <CloseBtn>
                  <img onClick={(e) => exitModal(e, history, '/')} src={CloseIcon} className='dark-bg' alt='close-icon' />
              </CloseBtn>
@@ -93,8 +95,8 @@ export const GameDetail = () => {
 
             </AboutGame>
 
-            <ImageBanner>
-                <img src={resizeImage(details.background_image || details.background_image)} alt={details.name} />
+            <ImageBanner >
+                <motion.img src={resizeImage(details.background_image || details.background_image)} alt={details.name} />
             </ImageBanner>
             
             <TagsContainer>
@@ -121,55 +123,40 @@ export const GameDetail = () => {
                  </Gallery>
              </StyledWrapper>
                  }
-             
-             
-             {/* {devteam.length > 0 && 
-             <StyledWrapper>
-                 <h4>Developers</h4> 
-                 <Grid>
-                 <GameCard>
-                     <img src={resizeImage(devteam[0].image_background)} alt={game.name} />
-                     <FooterContainer>
-                         {devteam.map((developer) => {
-                             return <span key={developer.id}> {developer.name} </span>
-                         })}
-                     </FooterContainer>
-                 </GameCard>
-                 </Grid>
-             </StyledWrapper>
-             } */}
 
              {details.publishers.length > 0 && 
              <StyledWrapper>
                  <h4>Publishers</h4> 
                  <Grid>
-                 <GameCard>
+                 <GameCardModified>
                      <img src={resizeImage(details.publishers[0].image_background)} alt={details.name} />
                      <footer>
                          {details.publishers.map((publisher) => {
                              return <span key={publisher.id}> {publisher.name} </span>
                          })}
                      </footer>
-                 </GameCard>
+                 </GameCardModified>
                  </Grid>
              </StyledWrapper>
              }
 
+             {details.genres.length > 0 && 
              <StyledWrapper>
                  <h4>Genres</h4>
                  <Grid>
                  {details.genres.map((genre) => {
                      return (
-                         <GameCard key={genre.id}>
+                         <GameCardModified key={genre.id}>
                              <img src={resizeImage(genre.image_background)} alt={genre.name} />
                               <footer>
                                   <span>{genre.name}</span>
                               </footer>
-                         </GameCard>
+                         </GameCardModified>
                      )
                  })}
                  </Grid>
              </StyledWrapper>
+             }
              
              {devteam.length > 0 && 
              <StyledWrapper>
@@ -177,12 +164,12 @@ export const GameDetail = () => {
                 <Grid>
                 {devteam.map((person) => {
                     return (
-                        <GameCard key={person.id}>
+                        <GameCardModified key={person.id}>
                           <img  src={person.image || resizeImage(person.image_background)} alt={person.name} />
                           <footer>
                               <span>{person.name}</span>
                           </footer>
-                        </GameCard>
+                        </GameCardModified>
                     )
                 })}
                 </Grid>
@@ -195,12 +182,12 @@ export const GameDetail = () => {
              <Grid>
              {samegameserie.map((serie) => {
                  return (
-                     <GameCard key={serie.id}>
+                     <GameCardModified key={serie.id}>
                           <img  src={resizeImage(serie.background_image)} alt={serie.name} />
                           <footer>
                               <span>{serie.name}</span>
                           </footer>
-                        </GameCard>
+                        </GameCardModified>
                  )
              })}
              </Grid>
@@ -213,13 +200,14 @@ export const GameDetail = () => {
 
 
 
+
+
 const Gallery = styled.div`
 display: grid;
-grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
 gap: 1rem;
 img {
-    width: 100%;
-    height: 10rem;
+    max-width: 100%;
     object-fit: cover;
 }
 `
