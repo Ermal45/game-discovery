@@ -54,15 +54,7 @@ export const Home = () => {
   const initialRender = useRef(false)
 
 
-  const filteredResultSection = useCallback(el => {
-    if (el !== null) {
-      const elPosition = el.offsetTop - 150;
-      window.scrollTo({
-        top: elPosition,
-        behavior: 'smooth'
-      })
-    }
-  }, [])
+  const filteredResultSection = useRef()
   
 
   useEffect(() => {
@@ -113,6 +105,17 @@ export const Home = () => {
      initialRender.current = true
    }
  }, [filters])
+
+ useEffect(() => {
+   if (game.filtered.result.length > 0) {
+      window.scrollTo({
+        top: filteredResultSection.current.offsetTop - 150,
+        behavior: 'smooth'
+      })
+    }
+ }, [game.filtered.result])
+
+ 
 
  
 
