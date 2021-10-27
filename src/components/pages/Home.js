@@ -37,6 +37,7 @@ import {useFilters} from '../reusable/useFilters'
 
 import styled from 'styled-components'
 import {animateList} from '../animations'
+import axios from 'axios'
 
 export const Home = () => {
 
