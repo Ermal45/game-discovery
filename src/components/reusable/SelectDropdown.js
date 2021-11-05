@@ -24,6 +24,8 @@ padding: 0.3rem 1rem;
 font-size: 1rem;
 border-radius: var(--card-radius);
 outline: none;
+background-color: transparent;
+
 font-family: popregular;
 text-transform: capitalize;
 border: 1px solid var(--clr-navigation-links);

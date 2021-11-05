@@ -198,7 +198,8 @@ z-index: 999;
 justify-content: flex-end;
 
 
-position: sticky;
+position: ${(prop) => prop.ypos >= 500 ? "sticky" : ""};
+
 top: 0;
 width: 100%;
 padding: 1rem 0.75rem;

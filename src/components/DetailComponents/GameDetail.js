@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchGameDetails} from '../stateManagment/actions/games_actions'
@@ -49,10 +49,16 @@ export const GameDetail = () => {
         }
     }
 
+    const [currYpos, setCurrYpos] = useState(0)
+
+    const handleModalScroll = (e) => {
+      setCurrYpos(e.target.scrollTop)
+    }
+
    return (
     !loadingDetails &&    
-        <DarkBG onMouseOver={showClickEvent} onClick={exitModal} className='dark-bg'>
-            <CloseBtn>
+        <DarkBG onScroll={handleModalScroll} onMouseOver={showClickEvent} onClick={exitModal} className='dark-bg'>
+            <CloseBtn ypos={currYpos}>
                  <img onClick={(e) => exitModal(e, history, '/')} src={CloseIcon} className='dark-bg' alt='close-icon' />
              </CloseBtn>
             <Modal variants={animModal} initial='hidden' animate='visible'>
