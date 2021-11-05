@@ -35,7 +35,6 @@ border: none;
 font-size: 0.95rem;
 cursor: pointer;
 font-family: popmedium;
-
 transition: var(--main-transition);
 
 :hover {
@@ -51,7 +50,6 @@ transition: var(--main-transition);
 const Container = styled.div`
 display: flex;
 justify-content: center;
-width: 100%;
 padding: 3rem 0;
 `
 
@@ -62,8 +60,10 @@ outline: none;
 border: 1px solid var(--clr-navigation-links);
 color: var(--clr-search-text);
 font-family: poplight;
+width: 100%;
 
 @media screen and (min-width: 500px) {
   padding: 0.5rem 2rem;
+  max-width: 500px;
 }
 `
